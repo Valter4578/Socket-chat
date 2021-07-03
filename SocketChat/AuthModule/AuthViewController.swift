@@ -24,11 +24,11 @@ class AuthViewController: UIViewController {
         
         authView.enterButton.addTarget(self, action: #selector(didPressEnterButton), for: .touchUpInside)
     }
-
-    // MARK:- Setup
     
     // MARK:- Selectors
     @objc func didPressEnterButton() {
+        guard let username = authView.usernameTextField.text else { return }
+        viewModel.saveUsername(username)
     }
 }
 

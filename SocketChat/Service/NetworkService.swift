@@ -17,7 +17,6 @@ protocol NetworkService {
 class DefaultNetworkService: NSObject, NetworkService {
     // MARK:- Private Properties
     private var session: URLSession?
-    private var socketService: SocketService
     private var webSocketTask: URLSessionWebSocketTask?
     
     // MARK:- Functions
@@ -69,6 +68,7 @@ class DefaultNetworkService: NSObject, NetworkService {
         webSocketTask?.sendPing { error in
             if let error = error {
                 print("Error when sending PING \(error)")
+                
             } else {
                 print("Web Socket connection is alive")
                 DispatchQueue.global().asyncAfter(deadline: .now() + 5) { [weak self] in
@@ -77,12 +77,6 @@ class DefaultNetworkService: NSObject, NetworkService {
                 }
             }
         }
-    }
-    
-    // MARK:- Init
-    init(socketService: SocketService) {
-        self.socketService = socketService
-        super.init()
     }
 }
 

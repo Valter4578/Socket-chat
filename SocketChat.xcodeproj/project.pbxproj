@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		880502D52690631F002E2C5A /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880502D42690631F002E2C5A /* Coordinator.swift */; };
+		880502D826906514002E2C5A /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880502D726906514002E2C5A /* AppCoordinator.swift */; };
+		880502DC269065E9002E2C5A /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880502DB269065E9002E2C5A /* Assembly.swift */; };
+		880502E0269083C8002E2C5A /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880502DF269083C8002E2C5A /* AuthCoordinator.swift */; };
 		88791C8B26903F1A00364E9D /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88791C8A26903F1A00364E9D /* NetworkService.swift */; };
 		88A238EE268A146D0044C3BF /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A238ED268A146C0044C3BF /* AuthViewModel.swift */; };
 		88AE51FE2689C96F008FFC50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AE51FD2689C96F008FFC50 /* AppDelegate.swift */; };
@@ -19,6 +23,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		880502D42690631F002E2C5A /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		880502D726906514002E2C5A /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		880502DB269065E9002E2C5A /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
+		880502DF269083C8002E2C5A /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		88791C8A26903F1A00364E9D /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		88A238ED268A146C0044C3BF /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		88AE51FA2689C96F008FFC50 /* SocketChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocketChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -43,6 +51,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		880502D32690630C002E2C5A /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				880502D42690631F002E2C5A /* Coordinator.swift */,
+				880502D726906514002E2C5A /* AppCoordinator.swift */,
+				880502DF269083C8002E2C5A /* AuthCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		880502DA26906590002E2C5A /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				880502DB269065E9002E2C5A /* Assembly.swift */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
 		88A238F0268B71490044C3BF /* Service */ = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +96,8 @@
 		88AE51FC2689C96F008FFC50 /* SocketChat */ = {
 			isa = PBXGroup;
 			children = (
+				880502DA26906590002E2C5A /* Assembly */,
+				880502D32690630C002E2C5A /* Coordinators */,
 				88FA6431268DA7D200662E51 /* Model */,
 				88A238F0268B71490044C3BF /* Service */,
 				88AE51FD2689C96F008FFC50 /* AppDelegate.swift */,
@@ -169,11 +197,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				880502D52690631F002E2C5A /* Coordinator.swift in Sources */,
+				880502DC269065E9002E2C5A /* Assembly.swift in Sources */,
 				88A238EE268A146D0044C3BF /* AuthViewModel.swift in Sources */,
 				88AE52022689C96F008FFC50 /* AuthViewController.swift in Sources */,
 				88791C8B26903F1A00364E9D /* NetworkService.swift in Sources */,
 				88AE51FE2689C96F008FFC50 /* AppDelegate.swift in Sources */,
+				880502E0269083C8002E2C5A /* AuthCoordinator.swift in Sources */,
 				88AE52162689CB60008FFC50 /* AuthView.swift in Sources */,
+				880502D826906514002E2C5A /* AppCoordinator.swift in Sources */,
 				88AE52002689C96F008FFC50 /* SceneDelegate.swift in Sources */,
 				88FA6433268DA7DD00662E51 /* Message.swift in Sources */,
 			);

@@ -9,9 +9,9 @@ import UIKit
 
 class AuthView: UIView {
     // MARK:- Views
-    lazy var roomNameTextField: UITextField = {
+    lazy var usernameTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Room name"
+        textField.placeholder = "Your username"
         textField.textAlignment = .center
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.borderStyle = .roundedRect
@@ -47,7 +47,7 @@ class AuthView: UIView {
         addSubview(enterButton)
         enterButton.layer.cornerRadius = 20
         NSLayoutConstraint.activate([
-            enterButton.topAnchor.constraint(equalTo: roomNameTextField.bottomAnchor, constant: 20),
+            enterButton.topAnchor.constraint(equalTo: usernameTextField.bottomAnchor, constant: 20),
             enterButton.centerXAnchor.constraint(equalTo: centerXAnchor),
             enterButton.heightAnchor.constraint(equalToConstant: 50),
             enterButton.widthAnchor.constraint(equalToConstant: 250),
@@ -55,15 +55,15 @@ class AuthView: UIView {
     }
     
     private func setupTextField() {
-        addSubview(roomNameTextField)
-        roomNameTextField.becomeFirstResponder()
-        roomNameTextField.layer.borderColor = UIColor.black.cgColor
+        addSubview(usernameTextField)
+        usernameTextField.becomeFirstResponder()
+        usernameTextField.layer.borderColor = UIColor.black.cgColor
         NSLayoutConstraint.activate([
-            roomNameTextField.centerXAnchor.constraint(equalTo: centerXAnchor),
-            roomNameTextField.centerYAnchor.constraint(equalTo: centerYAnchor),
-            roomNameTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 50),
-            roomNameTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -50),
-            roomNameTextField.heightAnchor.constraint(equalToConstant: 70),
+            usernameTextField.centerXAnchor.constraint(equalTo: centerXAnchor),
+            usernameTextField.centerYAnchor.constraint(equalTo: centerYAnchor),
+            usernameTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 50),
+            usernameTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -50),
+            usernameTextField.heightAnchor.constraint(equalToConstant: 70),
         ])
     }
 }
