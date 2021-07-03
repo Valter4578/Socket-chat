@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		88791C8B26903F1A00364E9D /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88791C8A26903F1A00364E9D /* NetworkService.swift */; };
 		88A238EE268A146D0044C3BF /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A238ED268A146C0044C3BF /* AuthViewModel.swift */; };
-		88A238F2268B715E0044C3BF /* SocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A238F1268B715E0044C3BF /* SocketService.swift */; };
 		88AE51FE2689C96F008FFC50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AE51FD2689C96F008FFC50 /* AppDelegate.swift */; };
 		88AE52002689C96F008FFC50 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AE51FF2689C96F008FFC50 /* SceneDelegate.swift */; };
 		88AE52022689C96F008FFC50 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AE52012689C96F008FFC50 /* AuthViewController.swift */; };
@@ -22,7 +21,6 @@
 /* Begin PBXFileReference section */
 		88791C8A26903F1A00364E9D /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		88A238ED268A146C0044C3BF /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
-		88A238F1268B715E0044C3BF /* SocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketService.swift; sourceTree = "<group>"; };
 		88AE51FA2689C96F008FFC50 /* SocketChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocketChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88AE51FD2689C96F008FFC50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88AE51FF2689C96F008FFC50 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -48,7 +46,6 @@
 		88A238F0268B71490044C3BF /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				88A238F1268B715E0044C3BF /* SocketService.swift */,
 				88791C8A26903F1A00364E9D /* NetworkService.swift */,
 			);
 			path = Service;
@@ -177,7 +174,6 @@
 				88791C8B26903F1A00364E9D /* NetworkService.swift in Sources */,
 				88AE51FE2689C96F008FFC50 /* AppDelegate.swift in Sources */,
 				88AE52162689CB60008FFC50 /* AuthView.swift in Sources */,
-				88A238F2268B715E0044C3BF /* SocketService.swift in Sources */,
 				88AE52002689C96F008FFC50 /* SceneDelegate.swift in Sources */,
 				88FA6433268DA7DD00662E51 /* Message.swift in Sources */,
 			);

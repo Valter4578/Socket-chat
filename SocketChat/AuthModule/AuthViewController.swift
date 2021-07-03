@@ -14,7 +14,6 @@ class AuthViewController: UIViewController {
     }
     
     var viewModel: AuthViewModel! 
-    
     // MARK:- Lifecycle
     override func loadView() {
         view = AuthView()
@@ -22,9 +21,6 @@ class AuthViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let socketService = SocketService()
-        let networkService = DefaultNetworkService(socketService: socketService)
-        networkService.connect()
         
         authView.enterButton.addTarget(self, action: #selector(didPressEnterButton), for: .touchUpInside)
     }
@@ -33,7 +29,6 @@ class AuthViewController: UIViewController {
     
     // MARK:- Selectors
     @objc func didPressEnterButton() {
-        
     }
 }
 
