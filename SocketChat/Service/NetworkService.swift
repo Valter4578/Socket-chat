@@ -11,7 +11,7 @@ protocol NetworkService {
     func connect()
     func close()
     func receive()
-    func send()
+    func send(message: String)
 }
 
 class DefaultNetworkService: NSObject, NetworkService {
@@ -32,11 +32,9 @@ class DefaultNetworkService: NSObject, NetworkService {
         webSocketTask?.cancel(with: .goingAway, reason: reason)
     }
     
-    func send() {
+    func send(message: String) {
         DispatchQueue.global().asyncAfter(deadline: .now() + 1) { [weak self] in
             guard let strongSelf = self else { return }
-            strongSelf.send()
-            let message = "{\"username\":\"example1\", \"message\": \"hello\"}"
             strongSelf.webSocketTask?.send(.string(message)) { error in
                 if let error = error {
                     print("Error when sending a message \(error)")
@@ -54,6 +52,8 @@ class DefaultNetworkService: NSObject, NetworkService {
                     print("Data received \(data)")
                 case .string(let text):
                     print("Text received \(text)")
+                @unknown default:
+                    fatalError("Unexpected message output in receive")
                 }
             case .failure(let error):
                 print("Error when receiving \(error)")

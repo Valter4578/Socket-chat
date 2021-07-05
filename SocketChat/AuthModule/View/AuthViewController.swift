@@ -13,7 +13,9 @@ class AuthViewController: UIViewController {
         return view as! AuthView
     }
     
-    var viewModel: AuthViewModel! 
+    var viewModel: AuthViewModel!
+    var coordinator: AuthCoordinator!
+    
     // MARK:- Lifecycle
     override func loadView() {
         view = AuthView()
@@ -29,6 +31,7 @@ class AuthViewController: UIViewController {
     @objc func didPressEnterButton() {
         guard let username = authView.usernameTextField.text else { return }
         viewModel.saveUsername(username)
+        coordinator.showChat()
     }
 }
 

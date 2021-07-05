@@ -11,7 +11,11 @@
 		880502D826906514002E2C5A /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880502D726906514002E2C5A /* AppCoordinator.swift */; };
 		880502DC269065E9002E2C5A /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880502DB269065E9002E2C5A /* Assembly.swift */; };
 		880502E0269083C8002E2C5A /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880502DF269083C8002E2C5A /* AuthCoordinator.swift */; };
+		880502E9269089B3002E2C5A /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880502E8269089B3002E2C5A /* ChatViewController.swift */; };
+		880502EC269089CA002E2C5A /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880502EB269089CA002E2C5A /* ChatViewModel.swift */; };
+		880502EF269089D1002E2C5A /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880502EE269089D1002E2C5A /* ChatView.swift */; };
 		88791C8B26903F1A00364E9D /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88791C8A26903F1A00364E9D /* NetworkService.swift */; };
+		8899BC2A26908B380060FBEA /* ChatCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8899BC2926908B380060FBEA /* ChatCoordinator.swift */; };
 		88A238EE268A146D0044C3BF /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A238ED268A146C0044C3BF /* AuthViewModel.swift */; };
 		88AE51FE2689C96F008FFC50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AE51FD2689C96F008FFC50 /* AppDelegate.swift */; };
 		88AE52002689C96F008FFC50 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AE51FF2689C96F008FFC50 /* SceneDelegate.swift */; };
@@ -27,7 +31,11 @@
 		880502D726906514002E2C5A /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		880502DB269065E9002E2C5A /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
 		880502DF269083C8002E2C5A /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
+		880502E8269089B3002E2C5A /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		880502EB269089CA002E2C5A /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
+		880502EE269089D1002E2C5A /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		88791C8A26903F1A00364E9D /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		8899BC2926908B380060FBEA /* ChatCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCoordinator.swift; sourceTree = "<group>"; };
 		88A238ED268A146C0044C3BF /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		88AE51FA2689C96F008FFC50 /* SocketChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocketChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88AE51FD2689C96F008FFC50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +65,7 @@
 				880502D42690631F002E2C5A /* Coordinator.swift */,
 				880502D726906514002E2C5A /* AppCoordinator.swift */,
 				880502DF269083C8002E2C5A /* AuthCoordinator.swift */,
+				8899BC2926908B380060FBEA /* ChatCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -67,6 +76,60 @@
 				880502DB269065E9002E2C5A /* Assembly.swift */,
 			);
 			path = Assembly;
+			sourceTree = "<group>";
+		};
+		880502E22690894B002E2C5A /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				88AE51FD2689C96F008FFC50 /* AppDelegate.swift */,
+				88AE51FF2689C96F008FFC50 /* SceneDelegate.swift */,
+				88AE52062689C973008FFC50 /* Assets.xcassets */,
+				88AE52082689C973008FFC50 /* LaunchScreen.storyboard */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		880502E42690897A002E2C5A /* ChatModule */ = {
+			isa = PBXGroup;
+			children = (
+				880502F1269089D7002E2C5A /* View */,
+				880502F2269089E0002E2C5A /* ViewModel */,
+			);
+			path = ChatModule;
+			sourceTree = "<group>";
+		};
+		880502E52690899E002E2C5A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				88AE52012689C96F008FFC50 /* AuthViewController.swift */,
+				88AE52152689CB60008FFC50 /* AuthView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		880502E6269089A2002E2C5A /* VIewModel */ = {
+			isa = PBXGroup;
+			children = (
+				88A238ED268A146C0044C3BF /* AuthViewModel.swift */,
+			);
+			path = VIewModel;
+			sourceTree = "<group>";
+		};
+		880502F1269089D7002E2C5A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				880502E8269089B3002E2C5A /* ChatViewController.swift */,
+				880502EE269089D1002E2C5A /* ChatView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		880502F2269089E0002E2C5A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				880502EB269089CA002E2C5A /* ChatViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		88A238F0268B71490044C3BF /* Service */ = {
@@ -98,13 +161,11 @@
 			children = (
 				880502DA26906590002E2C5A /* Assembly */,
 				880502D32690630C002E2C5A /* Coordinators */,
-				88FA6431268DA7D200662E51 /* Model */,
 				88A238F0268B71490044C3BF /* Service */,
-				88AE51FD2689C96F008FFC50 /* AppDelegate.swift */,
-				88AE51FF2689C96F008FFC50 /* SceneDelegate.swift */,
+				88FA6431268DA7D200662E51 /* Model */,
+				880502E22690894B002E2C5A /* SupportingFiles */,
+				880502E42690897A002E2C5A /* ChatModule */,
 				88AE52142689CB01008FFC50 /* AuthModule */,
-				88AE52062689C973008FFC50 /* Assets.xcassets */,
-				88AE52082689C973008FFC50 /* LaunchScreen.storyboard */,
 				88AE520B2689C973008FFC50 /* Info.plist */,
 			);
 			path = SocketChat;
@@ -113,9 +174,8 @@
 		88AE52142689CB01008FFC50 /* AuthModule */ = {
 			isa = PBXGroup;
 			children = (
-				88AE52012689C96F008FFC50 /* AuthViewController.swift */,
-				88AE52152689CB60008FFC50 /* AuthView.swift */,
-				88A238ED268A146C0044C3BF /* AuthViewModel.swift */,
+				880502E52690899E002E2C5A /* View */,
+				880502E6269089A2002E2C5A /* VIewModel */,
 			);
 			path = AuthModule;
 			sourceTree = "<group>";
@@ -197,16 +257,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				880502EC269089CA002E2C5A /* ChatViewModel.swift in Sources */,
 				880502D52690631F002E2C5A /* Coordinator.swift in Sources */,
 				880502DC269065E9002E2C5A /* Assembly.swift in Sources */,
 				88A238EE268A146D0044C3BF /* AuthViewModel.swift in Sources */,
+				880502EF269089D1002E2C5A /* ChatView.swift in Sources */,
 				88AE52022689C96F008FFC50 /* AuthViewController.swift in Sources */,
 				88791C8B26903F1A00364E9D /* NetworkService.swift in Sources */,
 				88AE51FE2689C96F008FFC50 /* AppDelegate.swift in Sources */,
 				880502E0269083C8002E2C5A /* AuthCoordinator.swift in Sources */,
 				88AE52162689CB60008FFC50 /* AuthView.swift in Sources */,
 				880502D826906514002E2C5A /* AppCoordinator.swift in Sources */,
+				8899BC2A26908B380060FBEA /* ChatCoordinator.swift in Sources */,
 				88AE52002689C96F008FFC50 /* SceneDelegate.swift in Sources */,
+				880502E9269089B3002E2C5A /* ChatViewController.swift in Sources */,
 				88FA6433268DA7DD00662E51 /* Message.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

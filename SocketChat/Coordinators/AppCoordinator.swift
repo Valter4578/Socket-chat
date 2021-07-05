@@ -16,7 +16,7 @@ class AppCoordinator: Coordinator {
     // MARK:- Functions
     func start() {
         let authCoordinator = AuthCoordinator(assembly: assembly)
-        childCoordinators.append(authCoordinator)
+        append(coordinator: authCoordinator)
         authCoordinator.start()
         
         window.rootViewController = authCoordinator.viewController
