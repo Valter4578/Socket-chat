@@ -20,53 +20,5 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "51E1BED4-9764-48E3-88F6-25B712AE247B"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SocketChat/Service/NetworkService.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "send(message:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "51E1BED4-9764-48E3-88F6-25B712AE247B - 55a941ced45b60dc"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in SocketChat.DefaultNetworkService.send(message: Swift.String) -&gt; ()"
-                  moduleName = "SocketChat"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maksimalekseev/Documents/dev.nosync/ios/SocketChat/SocketChat/Service/NetworkService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "40"
-                  endingLineNumber = "40"
-                  offsetFromSymbolStart = "258">
-               </Location>
-               <Location
-                  uuid = "51E1BED4-9764-48E3-88F6-25B712AE247B - 37cbaae3ad2dfa93"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 () -&gt; () in SocketChat.DefaultNetworkService.send(message: Swift.String) -&gt; ()"
-                  moduleName = "SocketChat"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maksimalekseev/Documents/dev.nosync/ios/SocketChat/SocketChat/Service/NetworkService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "41"
-                  endingLineNumber = "41"
-                  offsetFromSymbolStart = "95">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

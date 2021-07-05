@@ -8,13 +8,22 @@
 import UIKit
 
 class ChatViewController: UIViewController {
-    // MARK:- Properties
+    // MARK:- Dependencies
+    var chatView: UIView {
+        return view as! ChatView
+    }
+    
     var viewModel: ChatViewModel!
-    var coordinator: ChatCoordinator! 
+    var coordinator: ChatCoordinator!
     
     // MARK:- Lifecycle
+    override func loadView() {
+        view = ChatView()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
     }
     
