@@ -8,7 +8,7 @@
 import Foundation
 
 protocol ChatViewModel {
-    func sendMessage(_ message: String)
+    func send(message: String)
     func connect()  
 }
 
@@ -17,7 +17,7 @@ class DefaultChatViewModel: ChatViewModel {
     let networkService: NetworkService?
     
     // MARK:- Functions
-    func sendMessage(_ message: String) {
+    func send(message: String) {
         guard let username = UserDefaults.standard.string(forKey: "username") else { return }
         let message = Message(username: username, message: message)
         do {
