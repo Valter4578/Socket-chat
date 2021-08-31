@@ -29,7 +29,6 @@ class DefaultChatViewModel: ChatViewModel {
     
     var messagesDidChange: ((ChatViewModel) -> ())?
     
-    
     // MARK:- Functions
     func send(message: String) {
         guard let username = UserDefaults.standard.string(forKey: "username") else { return }
@@ -62,6 +61,9 @@ class DefaultChatViewModel: ChatViewModel {
 extension DefaultChatViewModel: NetworkServiceDelegate {
     func received(message: Message) {
         DispatchQueue.main.async {
+            var message = message
+            guard let username = UserDefaults.standard.string(forKey: "username") else { return }
+            message.isOutcoming = username == message.username
             self.messages.append(message)
         }
     }

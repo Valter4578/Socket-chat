@@ -17,7 +17,7 @@ class ChatViewController: UIViewController {
     var coordinator: ChatCoordinator!
     
     // MARK:- Private properties
-    private let cellId = "ChatViewControllerTableViewCell"
+    private let cellId = "ChatViewControllerTableViewCellId"
     
     // MARK:- Lifecycle
     override func loadView() {
@@ -45,7 +45,7 @@ class ChatViewController: UIViewController {
     private func configureTableView() {
         chatView.messagesTableView.delegate = self
         chatView.messagesTableView.dataSource = self
-        chatView.messagesTableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
+        chatView.messagesTableView.register(ChatTableViewCell.self, forCellReuseIdentifier: cellId)
     }
     
     // MARK:- Selectors
@@ -71,8 +71,8 @@ extension ChatViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
-        cell.textLabel?.text = viewModel.messages[indexPath.row].message
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? ChatTableViewCell else { return UITableViewCell() }
+        cell.message = viewModel.messages[indexPath.row]
         return cell
     }
 }

@@ -9,5 +9,11 @@ import Foundation
 
 struct Message: Codable {
     let username: String
-    let message: String 
+    let message: String
+    var isOutcoming: Bool? = false
+    
+    enum CodingKeys: String, CodingKey {
+        case username
+        case message
+    }
 }

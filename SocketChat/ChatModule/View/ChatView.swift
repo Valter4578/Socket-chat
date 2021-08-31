@@ -40,6 +40,9 @@ class ChatView: UIView {
     lazy var messagesTableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.separatorStyle = .none
+        tableView.allowsSelection = false
+        tableView.backgroundColor = .systemGray
         return tableView
     }()
     

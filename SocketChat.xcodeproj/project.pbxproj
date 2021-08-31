@@ -23,6 +23,7 @@
 		88AE52072689C973008FFC50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88AE52062689C973008FFC50 /* Assets.xcassets */; };
 		88AE520A2689C973008FFC50 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88AE52082689C973008FFC50 /* LaunchScreen.storyboard */; };
 		88AE52162689CB60008FFC50 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AE52152689CB60008FFC50 /* AuthView.swift */; };
+		88EBA14C26943AB400385B3A /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EBA14B26943AB300385B3A /* ChatTableViewCell.swift */; };
 		88FA6433268DA7DD00662E51 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FA6432268DA7DD00662E51 /* Message.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +46,7 @@
 		88AE52092689C973008FFC50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		88AE520B2689C973008FFC50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88AE52152689CB60008FFC50 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
+		88EBA14B26943AB300385B3A /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
 		88FA6432268DA7DD00662E51 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -107,12 +109,12 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		880502E6269089A2002E2C5A /* VIewModel */ = {
+		880502E6269089A2002E2C5A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				88A238ED268A146C0044C3BF /* AuthViewModel.swift */,
 			);
-			path = VIewModel;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		880502F1269089D7002E2C5A /* View */ = {
@@ -120,6 +122,7 @@
 			children = (
 				880502E8269089B3002E2C5A /* ChatViewController.swift */,
 				880502EE269089D1002E2C5A /* ChatView.swift */,
+				88EBA14B26943AB300385B3A /* ChatTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -175,7 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				880502E52690899E002E2C5A /* View */,
-				880502E6269089A2002E2C5A /* VIewModel */,
+				880502E6269089A2002E2C5A /* ViewModel */,
 			);
 			path = AuthModule;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 				880502DC269065E9002E2C5A /* Assembly.swift in Sources */,
 				88A238EE268A146D0044C3BF /* AuthViewModel.swift in Sources */,
 				880502EF269089D1002E2C5A /* ChatView.swift in Sources */,
+				88EBA14C26943AB400385B3A /* ChatTableViewCell.swift in Sources */,
 				88AE52022689C96F008FFC50 /* AuthViewController.swift in Sources */,
 				88791C8B26903F1A00364E9D /* NetworkService.swift in Sources */,
 				88AE51FE2689C96F008FFC50 /* AppDelegate.swift in Sources */,

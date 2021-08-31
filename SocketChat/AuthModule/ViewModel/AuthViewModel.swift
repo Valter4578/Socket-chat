@@ -18,6 +18,7 @@ class DefaultAuthViewModel: AuthViewModel {
     func saveUsername(_ username: String) {
         UserDefaults.standard.setValue(username, forKey: "username")
     }
+    
     // MARK:- Private functions
     
     // MARK:- Init
