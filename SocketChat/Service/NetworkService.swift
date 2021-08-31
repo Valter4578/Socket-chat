@@ -8,16 +8,24 @@
 import Foundation
 
 protocol NetworkService {
+    var delegate: NetworkServiceDelegate? { get set }
     func connect()
     func close()
     func receive()
     func send(message: String)
 }
 
+protocol NetworkServiceDelegate: AnyObject {
+    func received(message: Message)
+}
+
 class DefaultNetworkService: NSObject, NetworkService {
     // MARK:- Private Properties
     private var session: URLSession?
     private var webSocketTask: URLSessionWebSocketTask?
+    
+    // MARK:- Properties
+    weak var delegate: NetworkServiceDelegate?
     
     // MARK:- Functions
     func connect() {
@@ -45,20 +53,28 @@ class DefaultNetworkService: NSObject, NetworkService {
     
     func receive() {
         webSocketTask?.receive { [weak self] result in
+            guard let strongSelf = self else { return }
+
             switch result {
             case .success(let message):
                 switch message {
                 case .data(let data):
                     print("Data received \(data)")
+                    guard let message = try? JSONDecoder().decode(Message.self, from: data) else { return }
+                    strongSelf.delegate?.received(message: message)
                 case .string(let text):
                     print("Text received \(text)")
+                    guard let data = text.data(using: .utf8),
+                          let message = try? JSONDecoder().decode(Message.self, from: data)
+                    else { return }
+                    strongSelf.delegate?.received(message: message)
                 @unknown default:
                     fatalError("Unexpected message output in receive")
                 }
             case .failure(let error):
                 print("Error when receiving \(error)")
             }
-            guard let strongSelf = self else { return }
+            
             strongSelf.receive()
         }
     }

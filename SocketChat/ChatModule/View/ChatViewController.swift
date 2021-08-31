@@ -16,6 +16,9 @@ class ChatViewController: UIViewController {
     var viewModel: ChatViewModel!
     var coordinator: ChatCoordinator!
     
+    // MARK:- Private properties
+    private let cellId = "ChatViewControllerTableViewCell"
+    
     // MARK:- Lifecycle
     override func loadView() {
         view = ChatView()
@@ -24,11 +27,26 @@ class ChatViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        bindViewModel()
         viewModel.connect()
+        viewModel.receive()
         chatView.sendButton.addTarget(self, action: #selector(didPressSendButton), for: .touchUpInside)
+        configureTableView()
     }
     
-    // MARK:- Functions
+    // MARK:- Private
+    private func bindViewModel() {
+        viewModel.messagesDidChange = { [weak self] viewModel in
+            guard let strongSelf = self else { return }
+            strongSelf.chatView.messagesTableView.reloadData()
+        }
+    }
+    
+    private func configureTableView() {
+        chatView.messagesTableView.delegate = self
+        chatView.messagesTableView.dataSource = self
+        chatView.messagesTableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
+    }
     
     // MARK:- Selectors
     @objc func didPressSendButton() {
@@ -38,5 +56,23 @@ class ChatViewController: UIViewController {
         
         viewModel.send(message: message)
         chatView.messageTextField.text = ""
+    }
+}
+
+// MARK:- UITableViewDelegate
+extension ChatViewController: UITableViewDelegate {
+    
+}
+
+// MARK:- UITableViewDataSource
+extension ChatViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.messages.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
+        cell.textLabel?.text = viewModel.messages[indexPath.row].message
+        return cell
     }
 }

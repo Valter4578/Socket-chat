@@ -37,20 +37,32 @@ class ChatView: UIView {
         return view
     }()
     
+    lazy var messagesTableView: UITableView = {
+        let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        return tableView
+    }()
+    
     // MARK:- Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        backgroundColor = .white
-        setupToolBarView()
-        setupSendButton()
-        setupMessageTextField()
+        commonInit()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private func commonInit() {
+        backgroundColor = .white
+        setupToolBarView()
+        setupSendButton()
+        setupMessageTextField()
+        setupTableView()
+    }
+    
+    // MARK:- Overriden
     override func layoutSubviews() {
         super.layoutSubviews()
         
@@ -89,6 +101,16 @@ class ChatView: UIView {
             messageTextField.trailingAnchor.constraint(equalTo: sendButton.leadingAnchor, constant: -15),
             messageTextField.topAnchor.constraint(equalTo: toolBarView.topAnchor, constant: 10),
             messageTextField.bottomAnchor.constraint(equalTo: toolBarView.bottomAnchor, constant: -10),
+        ])
+    }
+    
+    private func setupTableView() {
+        addSubview(messagesTableView)
+        NSLayoutConstraint.activate([
+            messagesTableView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            messagesTableView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            messagesTableView.bottomAnchor.constraint(equalTo: toolBarView.topAnchor),
+            messagesTableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor)
         ])
     }
 }
