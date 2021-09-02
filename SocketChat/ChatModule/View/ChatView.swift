@@ -36,14 +36,12 @@ class ChatView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    
-    lazy var messagesTableView: UITableView = {
-        let tableView = UITableView()
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.separatorStyle = .none
-        tableView.allowsSelection = false
-        tableView.backgroundColor = .systemGray
-        return tableView
+
+    lazy var messagesCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        return collectionView
     }()
     
     // MARK:- Init
@@ -62,7 +60,7 @@ class ChatView: UIView {
         setupToolBarView()
         setupSendButton()
         setupMessageTextField()
-        setupTableView()
+        setupCollectionView()
     }
     
     // MARK:- Overriden
@@ -107,13 +105,13 @@ class ChatView: UIView {
         ])
     }
     
-    private func setupTableView() {
-        addSubview(messagesTableView)
+    private func setupCollectionView() {
+        addSubview(messagesCollectionView)
         NSLayoutConstraint.activate([
-            messagesTableView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            messagesTableView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            messagesTableView.bottomAnchor.constraint(equalTo: toolBarView.topAnchor),
-            messagesTableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor)
+            messagesCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            messagesCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            messagesCollectionView.bottomAnchor.constraint(equalTo: toolBarView.topAnchor),
+            messagesCollectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor)
         ])
     }
 }

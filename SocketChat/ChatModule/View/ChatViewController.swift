@@ -17,7 +17,12 @@ class ChatViewController: UIViewController {
     var coordinator: ChatCoordinator!
     
     // MARK:- Private properties
-    private let cellId = "ChatViewControllerTableViewCellId"
+    private enum Constants {
+        static let cellId = "ChatViewControllerTableViewCellId"
+//        static let cellHeight = 50
+//        static let cellWidth = 300
+        static let minimumLineSpacing = 10
+    }
     
     // MARK:- Lifecycle
     override func loadView() {
@@ -31,21 +36,21 @@ class ChatViewController: UIViewController {
         viewModel.connect()
         viewModel.receive()
         chatView.sendButton.addTarget(self, action: #selector(didPressSendButton), for: .touchUpInside)
-        configureTableView()
+        configureCollectionView()
     }
     
     // MARK:- Private
     private func bindViewModel() {
         viewModel.messagesDidChange = { [weak self] viewModel in
             guard let strongSelf = self else { return }
-            strongSelf.chatView.messagesTableView.reloadData()
+            strongSelf.chatView.messagesCollectionView.reloadData()
         }
     }
     
-    private func configureTableView() {
-        chatView.messagesTableView.delegate = self
-        chatView.messagesTableView.dataSource = self
-        chatView.messagesTableView.register(ChatTableViewCell.self, forCellReuseIdentifier: cellId)
+    private func configureCollectionView() {
+        chatView.messagesCollectionView.delegate = self
+        chatView.messagesCollectionView.dataSource = self
+        chatView.messagesCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: Constants.cellId)
     }
     
     // MARK:- Selectors
@@ -59,20 +64,35 @@ class ChatViewController: UIViewController {
     }
 }
 
-// MARK:- UITableViewDelegate
-extension ChatViewController: UITableViewDelegate {
+// MARK:- UICollectionViewDelegate
+extension ChatViewController: UICollectionViewDelegate {
     
 }
 
-// MARK:- UITableViewDataSource
-extension ChatViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+// MARK:- UICollectionViewDataSource
+extension ChatViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.messages.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? ChatTableViewCell else { return UITableViewCell() }
-        cell.message = viewModel.messages[indexPath.row]
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellId, for: indexPath)
+        cell.backgroundColor = .red
         return cell
+    }
+}
+
+extension ChatViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 300, height: 50)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return CGFloat(Constants.minimumLineSpacing)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        let top = Int(chatView.messagesCollectionView.frame.height) - (50 + Constants.minimumLineSpacing) * viewModel.messages.count
+        return UIEdgeInsets(top: CGFloat(top), left: 5, bottom: 5, right: 5)
     }
 }
